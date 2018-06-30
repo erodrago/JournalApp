@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Journal App</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_calender">Calender</string>
+    <string name="action_signout">Sign Out</string>
+    <string name="title_activity_journal">Write Something</string>
+    <string name="update_button">Update </string>
+
+    <array name="action_mood">
+        <item >Whats your mood today?</item>
+        <item >Happy</item>
+        <item >Sad</item>
+        <item >Excited</item>
+        <item >Annoyed</item>
+    </array>
+</resources>

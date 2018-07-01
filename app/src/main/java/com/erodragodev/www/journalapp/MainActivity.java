@@ -71,7 +71,28 @@ public class MainActivity extends AppCompatActivity implements JournalAdapter.It
 
         mDb = Database.getDatabase(getApplicationContext());
         setupViewModel();
-        
+
+        //deleting by swapping
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            // Called when a user swipes left or right on a ViewHolder
+            @Override
+            public void onSwiped(final RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                // Here is where you'll implement swipe to delete
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        int position = viewHolder.getAdapterPosition();
+                        List<MyJournal> myJournal = mAdapter.getTasks();
+                        mDb.journalDao().deleteJournal(myJournal.get(position));
+                    }
+                });
+            }
+        }).attachToRecyclerView(mRV);
         
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

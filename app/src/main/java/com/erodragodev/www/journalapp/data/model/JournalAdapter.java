@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalViewHolder> {
-     private static final String DATE_FORMAT = "EEEE";
+     private static final String DATE_FORMAT = "EEEE/MMMM/dd/YYYY ";
 
 
     final private ItemClickListener mItemClickListener;
@@ -59,26 +59,83 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
         String title = myJournal.getJournalTitle();
         String details = myJournal.getJournalDesc();
         String date = dateFormat.format(myJournal.getDate());
+        String date1 = dateFormat.format(myJournal.getDate());
         String[] parts =date.split("/");
 
-        Date d= new Date();
-        String dayOfTheWeek =dateFormat.format(d);
+
 
 
         //Set values
-        holder.dayNo.setText(parts[0]);
-        holder.day.setText(dayOfTheWeek);
-        Resources res=Resources.getSystem();
-        holder.moodImg.setImageDrawable(ContextCompat.getDrawable(mContext,R.drawable.ic_launcher_foreground));
-        holder.dayTime.setText(dayOfTheWeek);
-        holder.monthYr.setText(dayOfTheWeek);
-        holder.journalDesc.setText(dayOfTheWeek);
+        holder.dayNo.setText(parts[2]);
+        holder.day.setText(parts[0]);
+        if(mood=="Happy"){
+            holder.moodImg.setImageResource(R.drawable.happy);
+        }else if(mood=="Sad"){
+            holder.moodImg.setImageResource(R.drawable.sad);
+        }else if(mood=="Feeling Loved"){
+            holder.moodImg.setImageResource(R.drawable.loved);
+        }else if(mood=="Productive"){
+            holder.moodImg.setImageResource(R.drawable.productive);
+        }else if(mood=="Annoyed"){
+            holder.moodImg.setImageResource(R.drawable.annoyed);
+        }else{
+            holder.moodImg.setImageResource(R.drawable.cool);
+        }
+
+
+        holder.monthYr.setText(parts[1]+" "+parts[3]);
+        holder.journalDesc.setText(details);
 
 
 
     }
 
 
+//    public String checkMonth(String s){
+//        int dayno=Integer.parseInt(s);
+//        String month="";
+//        if(dayno==1){
+//            month ="January";
+//            return month;
+//        }else if(dayno==2){
+//            month ="January";
+//            return month;
+//        }else if(dayno==3){
+//            month ="January";
+//            return month;
+//        }else if(dayno==4){
+//            month ="January";
+//            return month;
+//        }else if(dayno==5){
+//            month ="January";
+//            return month;
+//        }else if(dayno==6){
+//            month ="January";
+//            return month;
+//        }else if(dayno==7){
+//            month ="January";
+//            return month;
+//        }else if(dayno==8){
+//            month ="January";
+//            return month;
+//        }else if(dayno==9){
+//            month ="January";
+//            return month;
+//        }else if(dayno==10){
+//            month ="January";
+//            return month;
+//        }else if(dayno==11){
+//            month ="January";
+//            return month;
+//        }else if(dayno==12){
+//            month ="January";
+//            return month;
+//        }else {
+//            month ="NB";
+//            return month;
+//        }
+//
+//    }
 
     /**
      * Returns the number of items to display.
@@ -112,7 +169,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
     class JournalViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-        TextView dayNo,day,monthYr,dayTime,journalDesc;
+        TextView dayNo,day,monthYr,journalDesc;
         ImageView moodImg;
 
 
@@ -125,7 +182,6 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.JournalV
             dayNo = itemView.findViewById(R.id.tvDayno);
             day = itemView.findViewById(R.id.tvDay);
             monthYr = itemView.findViewById(R.id.tvMonthYr);
-            dayTime = itemView.findViewById(R.id.tvTime);
             journalDesc = itemView.findViewById(R.id.tvDetails);
             moodImg = itemView.findViewById(R.id.imgMood);
 

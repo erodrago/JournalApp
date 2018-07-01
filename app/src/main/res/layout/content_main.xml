@@ -15,7 +15,6 @@ tools:showIn="@layout/activity_main">
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:clipToPadding="false"
-       android:paddingBottom="80dp"
-       android:paddingTop="80dp" />
+       android:padding="10dp" />
 
 </LinearLayout>

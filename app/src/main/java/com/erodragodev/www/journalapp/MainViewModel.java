@@ -26,7 +26,7 @@ public class MainViewModel extends AndroidViewModel{
     }
 
     //Add New Journal
-    public void addUser(MyJournal myJournal) {
+    public void addJournal(MyJournal myJournal) {
         new addAsyncTask(appDatabase).execute(myJournal);
     }
 

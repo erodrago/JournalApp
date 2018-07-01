@@ -16,7 +16,9 @@ import android.widget.TextView;
 import com.erodragodev.www.journalapp.data.Database;
 import com.erodragodev.www.journalapp.data.model.MyJournal;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class AddJournalActivity extends AppCompatActivity {
 
@@ -29,6 +31,8 @@ public class AddJournalActivity extends AppCompatActivity {
     TextView tvDate;
     EditText edJournalTitle,edJournalDetail;
     Button btnPost;
+    private static final String DATE_FORMAT = "dd/MM/yyy";
+    private SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.getDefault());
 
     private int mJournalId = DEFAULT_TASK_ID;
 
@@ -50,7 +54,7 @@ public class AddJournalActivity extends AppCompatActivity {
 
 
         Date date =new Date();
-        tvDate.setText(date.toString());
+        tvDate.setText(dateFormat.format(date));
         String[] mood={"Hows your mood today?","Happy","Sad","Feeling loved","Productive","Annoyed"};
 
         ArrayAdapter moodAdapter=new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,mood);
@@ -99,7 +103,7 @@ public class AddJournalActivity extends AppCompatActivity {
         }
 
         edJournalTitle.setText(myJournal.getJournalTitle());
-        edJournalTitle.setText(myJournal.getJournalDesc());
+        edJournalDetail.setText(myJournal.getJournalDesc());
 
     }
     public void onSaveButtonClicked() {

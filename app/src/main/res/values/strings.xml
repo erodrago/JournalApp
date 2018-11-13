@@ -5,12 +5,13 @@
     <string name="action_signout">Sign Out</string>
     <string name="title_activity_journal">Write Something</string>
     <string name="update_button">Update </string>
+    <string name="sign_in">SignIn</string>
 
     <array name="action_mood">
-        <item >Whats your mood today?</item>
-        <item >Happy</item>
-        <item >Sad</item>
-        <item >Excited</item>
-        <item >Annoyed</item>
+        <item>Whats your mood today?</item>
+        <item>Happy</item>
+        <item>Sad</item>
+        <item>Excited</item>
+        <item>Annoyed</item>
     </array>
 </resources>

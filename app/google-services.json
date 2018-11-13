@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "173670391984",
+    "firebase_url": "https://journal-app-208910.firebaseio.com",
+    "project_id": "journal-app-208910",
+    "storage_bucket": "journal-app-208910.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173670391984:android:4f14909491d70e43",
+        "android_client_info": {
+          "package_name": "com.erodragodev.www.journalapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173670391984-o8f89m6ph0udne9e51eb2r752gp2raba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.erodragodev.www.journalapp",
+            "certificate_hash": "4928496740655ce34d55fd13d3b88095f09ffd5a"
+          }
+        },
+        {
+          "client_id": "173670391984-3cfsm8bpcv249c6eg87eu6qpth39aofs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP8IqQuDh-lIE_fS8cfGAYe1nsXlSfUmE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
